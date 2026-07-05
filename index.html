@@ -1,610 +1,311 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>За теб ❤️</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
-
-
-height:100vh;
-overflow:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(135deg,#ffb75e,#ed8f03,#8e54e9);
-
-background-size:400% 400%;
-
-animation:bgMove 12s ease infinite;
-
-color:white;
-
-}
-
-@keyframes bgMove{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-#particles{
-
-position:fixed;
-width:100%;
-height:100%;
-pointer-events:none;
-
-overflow:hidden;
-
-}
-
-.blob{
-
-position:absolute;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.12);
-
-animation:float linear infinite;
-
-}
-
-@keyframes float{
-
-from{
-
-transform:translateY(120vh) scale(.5);
-
-}
-
-to{
-
-transform:translateY(-20vh) scale(1.2);
-
-}
-
-}
-
-.card{
-
-width:92%;
-max-width:420px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(15px);
-
-border-radius:28px;
-
-padding:35px 25px;
-
-text-align:center;
-
-box-shadow:0 25px 50px rgba(0,0,0,.25);
-
-z-index:5;
-
-}
-
-#heart{
-
-font-size:90px;
-
-cursor:pointer;
-
-display:inline-block;
-
-animation:pulse 1.3s infinite;
-
-user-select:none;
-
-}
-
-@keyframes pulse{
-
-0%{transform:scale(1);}
-50%{transform:scale(1.18);}
-100%{transform:scale(1);}
-
-}
-
-.small{
-
-margin-top:18px;
-
-opacity:.9;
-
-font-size:18px;
-
-}
-
-.hidden{
-
-display:none;
-
-}
-
-#message{
-
-font-size:30px;
-
-font-weight:600;
-
-min-height:170px;
-
-line-height:1.45;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
-
-.progress{
-
-margin-top:20px;
-
-font-size:26px;
-
-letter-spacing:6px;
-
-opacity:.75;
-
-}
-
-.buttons{
-
-margin-top:35px;
-
-height:120px;
-
-position:relative;
-
-}
-
-button{
-
-border:none;
-
-padding:16px 32px;
-
-border-radius:50px;
-
-font-size:20px;
-
-font-weight:600;
-
-cursor:pointer;
-
-transition:.25s;
-
-}
-
-#yes{
-
-background:white;
-
-color:#7a35ff;
-
-box-shadow:0 8px 20px rgba(0,0,0,.2);
-
-}
-
-#yes:hover{
-
-transform:scale(1.08);
-
-}
-
-#no{
-
-position:absolute;
-
-background:#ff6464;
-
-color:white;
-
-left:60%;
-top:0;
-
-}
-
-.success{
-
-font-size:28px;
-
-line-height:1.6;
-
-animation:pop .6s;
-
-}
-
-@keyframes pop{
-
-from{
-
-opacity:0;
-transform:scale(.6);
-
-}
-
-to{
-
-opacity:1;
-transform:scale(1);
-
-}
-
-}
-
-.confetti{
-
-position:fixed;
-
-width:10px;
-height:18px;
-
-top:-30px;
-
-animation:fall linear forwards;
-
-}
-
-@keyframes fall{
-
-to{
-
-transform:translateY(120vh) rotate(720deg);
-
-}
-
-}
-
+  :root{
+    --night:#140b26;
+    --night2:#241240;
+    --rose:#ff5c8a;
+    --peach:#ffb4a2;
+    --blush:#ffd9e3;
+    --glow:rgba(255,92,138,.55);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:radial-gradient(120% 90% at 50% 110%, #3a1a52 0%, var(--night2) 45%, var(--night) 100%);
+    color:var(--blush);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    touch-action:manipulation;
+    user-select:none;-webkit-user-select:none;
+  }
+
+  /* ---------- stars ---------- */
+  .star{position:fixed;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 3s infinite ease-in-out;pointer-events:none;z-index:0}
+  @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.8;transform:scale(1)}}
+
+  /* ---------- floating hearts bg ---------- */
+  .bg-heart{position:fixed;bottom:-40px;pointer-events:none;z-index:0;animation:floatUp linear forwards}
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg);opacity:0}
+    10%{opacity:.5}
+    100%{transform:translateY(-110vh) rotate(40deg);opacity:0}
+  }
+
+  .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;z-index:2;transition:opacity .6s ease, transform .6s ease}
+  .hidden{opacity:0;pointer-events:none;transform:translateY(14px)}
+
+  /* ---------- screen 1: heart ---------- */
+  .big-heart{
+    font-size:96px;line-height:1;cursor:pointer;border:none;background:none;
+    filter:drop-shadow(0 0 28px var(--glow));
+    animation:beat 1.2s infinite ease-in-out;
+    transition:transform .2s;
+  }
+  .big-heart:active{transform:scale(.85)}
+  @keyframes beat{
+    0%,100%{transform:scale(1)}
+    14%{transform:scale(1.14)}
+    28%{transform:scale(1)}
+    42%{transform:scale(1.14)}
+    56%{transform:scale(1)}
+  }
+  .hint{margin-top:26px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;animation:pulseHint 2.4s infinite}
+  @keyframes pulseHint{0%,100%{opacity:.4}50%{opacity:.9}}
+
+  /* ---------- screen 2: messages ---------- */
+  .msg{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(26px,7vw,40px);
+    font-weight:600;font-style:italic;
+    line-height:1.35;max-width:22ch;
+    min-height:4.2em;
+    text-shadow:0 0 30px rgba(255,92,138,.25);
+  }
+  .cursor{display:inline-block;width:2px;height:1em;background:var(--rose);margin-left:3px;vertical-align:-2px;animation:blink .8s infinite}
+  @keyframes blink{50%{opacity:0}}
+  .tap-next{
+    margin-top:38px;border:1.5px solid rgba(255,217,227,.35);background:rgba(255,255,255,.04);
+    color:var(--blush);font-family:'Manrope';font-weight:600;font-size:15px;letter-spacing:.05em;
+    padding:14px 34px;border-radius:999px;cursor:pointer;
+    backdrop-filter:blur(4px);
+    transition:opacity .4s, transform .2s;
+  }
+  .tap-next:active{transform:scale(.94)}
+  .tap-next.invisible{opacity:0;pointer-events:none}
+  .progress{position:absolute;bottom:34px;display:flex;gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,217,227,.25);transition:background .3s, transform .3s}
+  .dot.on{background:var(--rose);transform:scale(1.25);box-shadow:0 0 10px var(--glow)}
+
+  /* ---------- screen 3: question ---------- */
+  .question{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,46px);font-weight:600;line-height:1.3;max-width:16ch}
+  .question em{color:var(--rose);font-style:italic}
+  .btn-row{margin-top:46px;display:flex;gap:20px;align-items:center;justify-content:center;min-height:80px}
+  .btn{
+    font-family:'Manrope';font-weight:800;border:none;border-radius:999px;cursor:pointer;
+    padding:16px 40px;font-size:20px;transition:transform .15s;
+  }
+  #yesBtn{
+    background:linear-gradient(135deg,var(--rose),#ff8fb0);color:#fff;
+    box-shadow:0 6px 30px var(--glow);
+  }
+  #yesBtn:active{transform:scale(.93)}
+  #noBtn{
+    background:rgba(255,255,255,.08);color:var(--blush);
+    border:1.5px solid rgba(255,217,227,.3);
+    position:fixed; /* becomes fixed once it starts running */
+    transition:left .25s cubic-bezier(.34,1.56,.64,1), top .25s cubic-bezier(.34,1.56,.64,1), transform .2s;
+    z-index:5;white-space:nowrap;
+  }
+  #noBtn.docked{position:static}
+  .taunt{margin-top:22px;font-size:15px;opacity:0;color:var(--peach);transition:opacity .4s;min-height:1.4em}
+  .taunt.show{opacity:.9}
+
+  /* ---------- screen 4: yes! ---------- */
+  .final-title{font-family:'Playfair Display',serif;font-size:clamp(34px,9vw,52px);font-weight:600;line-height:1.25}
+  .final-sub{margin-top:18px;font-size:18px;opacity:.9;max-width:26ch;line-height:1.5}
+  .date-card{
+    margin-top:34px;padding:20px 34px;border-radius:22px;
+    background:rgba(255,255,255,.06);border:1.5px solid rgba(255,92,138,.4);
+    backdrop-filter:blur(6px);
+    box-shadow:0 0 40px rgba(255,92,138,.2);
+  }
+  .date-card .day{font-family:'Playfair Display',serif;font-size:28px;color:var(--rose)}
+  .date-card .note{margin-top:6px;font-size:14px;opacity:.75;letter-spacing:.08em;text-transform:uppercase}
+
+  /* confetti hearts */
+  .confetti{position:fixed;top:-30px;pointer-events:none;z-index:10;animation:fall linear forwards}
+  @keyframes fall{
+    to{transform:translateY(115vh) rotate(360deg);opacity:.9}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+  }
 </style>
-
 </head>
-
 <body>
 
-<div id="particles"></div>
+<!-- SCREEN 1 : start -->
+<section class="screen" id="s1">
+  <button class="big-heart" id="startHeart" aria-label="Старт">❤️</button>
+  <div class="hint">Натисни сърцето</div>
+</section>
 
-<div class="card">
+<!-- SCREEN 2 : messages -->
+<section class="screen hidden" id="s2">
+  <p class="msg"><span id="msgText"></span><span class="cursor" id="cursor"></span></p>
+  <button class="tap-next invisible" id="nextBtn">Продължи →</button>
+  <div class="progress" id="dots"></div>
+</section>
 
-<div id="start">
+<!-- SCREEN 3 : question -->
+<section class="screen hidden" id="s3">
+  <h1 class="question">Е… ще излезеш ли с мен <em>тази сряда</em>? 🥺</h1>
+  <div class="btn-row">
+    <button class="btn" id="yesBtn">Да ❤️</button>
+    <button class="btn docked" id="noBtn">Не</button>
+  </div>
+  <div class="taunt" id="taunt"></div>
+</section>
 
-<div id="heart">❤️</div>
+<!-- SCREEN 4 : final -->
+<section class="screen hidden" id="s4">
+  <h1 class="final-title">Еееее! 🎉</h1>
+  <p class="final-sub">Знаех си, че ще кажеш „да“. Вече броя часовете… ❤️</p>
+  <div class="date-card">
+    <div class="day">Сряда 😘</div>
+    <div class="note">Значи е среща</div>
+  </div>
+</section>
 
-<div class="small">
-
-Докосни сърцето, за да започнеш...
-
-</div>
-
-</div>
-
-<div id="story" class="hidden">
-
-<div id="message"></div>
-
-<div class="progress" id="progress"></div>
-
-<div class="buttons hidden" id="buttons">
-
-<button id="yes">❤️ Да</button>
-
-<button id="no">Не 🙈</button>
-
-</div>
-
-</div>
-
-</div>
 <script>
-
-const messages = [
-
-"Дарина, мина доста време...",
-
-"И ужасно ми липсваш.",
-
-"Знаеш че...",
-
-"Всеки път когато си говорим по телефона...",
-
-"Направо полудявам.",
-
-"Защото съм далеч от теб.",
-
-"Та...",
-
-"Ще ми помогнеш ли да поправим това?",
-
-"Тази сряда? ❤️"
-
-];
-
-let current = 0;
-
-const start = document.getElementById("start");
-const story = document.getElementById("story");
-const heart = document.getElementById("heart");
-const message = document.getElementById("message");
-const progress = document.getElementById("progress");
-const buttons = document.getElementById("buttons");
-
-function typeText(text){
-
-message.innerHTML="";
-
-let i=0;
-
-const interval=setInterval(()=>{
-
-message.innerHTML+=text.charAt(i);
-
-i++;
-
-if(i>=text.length){
-
-clearInterval(interval);
-
+/* ---------- ambient stars ---------- */
+for(let i=0;i<40;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  const size=Math.random()*2.4+1;
+  s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}vw;top:${Math.random()*100}vh;animation-delay:${Math.random()*3}s`;
+  document.body.appendChild(s);
 }
-
-},35);
-
-}
-
-function updateProgress(){
-
-let html="";
-
-for(let i=0;i<messages.length;i++){
-
-if(i<=current){
-
-html+="❤️ ";
-
-}else{
-
-html+="🤍 ";
-
-}
-
-}
-
-progress.innerHTML=html;
-
-}
-
-function showMessage(){
-
-typeText(messages[current]);
-
-updateProgress();
-
-if(current===messages.length-1){
-
-setTimeout(()=>{
-
-buttons.classList.remove("hidden");
-
+/* ---------- floating hearts ---------- */
+const heartChars=['💗','💕','💖','❤️'];
+setInterval(()=>{
+  if(document.hidden)return;
+  const h=document.createElement('div');
+  h.className='bg-heart';
+  h.textContent=heartChars[Math.floor(Math.random()*heartChars.length)];
+  h.style.cssText=`left:${Math.random()*95}vw;font-size:${Math.random()*16+12}px;animation-duration:${Math.random()*6+7}s;opacity:.5`;
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),14000);
 },900);
 
+const $=id=>document.getElementById(id);
+const show=(hide,showEl)=>{ $(hide).classList.add('hidden'); $(showEl).classList.remove('hidden'); };
+
+/* ---------- messages flow ---------- */
+const messages=[
+  "Мина доста време…\nи много ми липсваш 💭",
+  "Знаеш, че полудявам всеки път,\nкогато си говорим по телефона 📞",
+  "А това е, защото съм\nтвърде далеч от теб…",
+  "Е… би ли ми помогнала\nда поправим това? 👀"
+];
+let idx=0;
+const dotsWrap=$('dots');
+messages.forEach(()=>{const d=document.createElement('div');d.className='dot';dotsWrap.appendChild(d);});
+const dots=[...dotsWrap.children];
+
+function typeMessage(text,done){
+  const el=$('msgText');
+  el.textContent='';
+  $('nextBtn').classList.add('invisible');
+  let i=0;
+  const chars=[...text];
+  (function tick(){
+    if(i<chars.length){
+      el.textContent+= chars[i]==='\n' ? '\n' : chars[i];
+      el.innerHTML=el.textContent.replace(/\n/g,'<br>');
+      i++;
+      setTimeout(tick, chars[i-1]==='…'?260:38);
+    } else done();
+  })();
 }
-
+function playMessage(){
+  dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  typeMessage(messages[idx],()=>{
+    $('nextBtn').classList.remove('invisible');
+    $('nextBtn').textContent = idx===messages.length-1 ? 'Кажи ми… 💬' : 'Продължи →';
+  });
 }
-
-heart.onclick=()=>{
-
-start.classList.add("hidden");
-
-story.classList.remove("hidden");
-
-showMessage();
-
-};
-
-document.addEventListener("click",(e)=>{
-
-if(start.classList.contains("hidden")==false)return;
-
-if(buttons.contains(e.target))return;
-
-if(current>=messages.length-1)return;
-
-current++;
-
-showMessage();
-
+$('startHeart').addEventListener('click',()=>{
+  if(navigator.vibrate)navigator.vibrate(30);
+  show('s1','s2');
+  setTimeout(playMessage,500);
+});
+$('nextBtn').addEventListener('click',()=>{
+  if(navigator.vibrate)navigator.vibrate(15);
+  idx++;
+  if(idx<messages.length){ playMessage(); }
+  else { show('s2','s3'); }
 });
 
-function createBlob(){
+/* ---------- runaway NO button ---------- */
+const noBtn=$('noBtn');
+const yesBtn=$('yesBtn');
+const taunts=["Не? Сериозно? 😏","Опа, изплъзна се! 🏃‍♂️","Бутонът каза „не“ на твоето „не“ 😌","Май вселената иска „да“ ✨","Хайде де… знаеш отговора 🥺","Само „Да“ работи тук 😘"];
+let escapes=0;
 
-const blob=document.createElement("div");
+function runAway(){
+  escapes++;
+  if(navigator.vibrate)navigator.vibrate(10);
+  // undock on first attempt
+  if(noBtn.classList.contains('docked')){
+    const r=noBtn.getBoundingClientRect();
+    noBtn.classList.remove('docked');
+    noBtn.style.left=r.left+'px';
+    noBtn.style.top=r.top+'px';
+  }
+  const bw=noBtn.offsetWidth, bh=noBtn.offsetHeight;
+  const pad=16;
+  const maxX=window.innerWidth-bw-pad, maxY=window.innerHeight-bh-pad;
+  let x,y;
+  const cur=noBtn.getBoundingClientRect();
+  do{
+    x=pad+Math.random()*(maxX-pad);
+    y=pad+Math.random()*(maxY-pad);
+  }while(Math.hypot(x-cur.left,y-cur.top)<160); // jump far enough
+  noBtn.style.left=x+'px';
+  noBtn.style.top=y+'px';
 
-blob.className="blob";
+  // no shrinks, yes grows
+  const shrink=Math.max(.45,1-escapes*.09);
+  noBtn.style.transform=`scale(${shrink})`;
+  const grow=Math.min(1.5,1+escapes*.07);
+  yesBtn.style.transform=`scale(${grow})`;
 
-const size=Math.random()*80+20;
+  const t=$('taunt');
+  t.textContent=taunts[Math.min(escapes-1,taunts.length-1)];
+  t.classList.add('show');
 
-blob.style.width=size+"px";
-
-blob.style.height=size+"px";
-
-blob.style.left=Math.random()*100+"vw";
-
-blob.style.animationDuration=(Math.random()*10+10)+"s";
-
-document.getElementById("particles").appendChild(blob);
-
-setTimeout(()=>{
-
-blob.remove();
-
-},20000);
-
+  if(escapes>=6){ noBtn.textContent='Добре де… „Да“ 🙃'; }
+  if(escapes>=9){ noBtn.style.opacity='0'; noBtn.style.pointerEvents='none';
+    t.textContent='Бутонът „Не“ се предаде. Остана само едното… 😇';
+  }
 }
+/* dodge before the tap even lands */
+['pointerdown','touchstart','mouseenter'].forEach(ev=>{
+  noBtn.addEventListener(ev,e=>{e.preventDefault();runAway();},{passive:false});
+});
+noBtn.addEventListener('click',e=>e.preventDefault());
 
-setInterval(createBlob,700);
-
-for(let i=0;i<12;i++){
-
-setTimeout(createBlob,i*200);
-
+/* ---------- YES ---------- */
+yesBtn.addEventListener('click',()=>{
+  if(navigator.vibrate)navigator.vibrate([30,50,30]);
+  noBtn.remove();
+  show('s3','s4');
+  burst();
+  setTimeout(burst,700);
+  setTimeout(burst,1500);
+});
+function burst(){
+  const chars=['❤️','💖','💘','💕','✨','💗'];
+  for(let i=0;i<34;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.textContent=chars[Math.floor(Math.random()*chars.length)];
+    c.style.cssText=`left:${Math.random()*100}vw;font-size:${Math.random()*20+14}px;animation-duration:${Math.random()*2+2.2}s;animation-delay:${Math.random()*.4}s`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
 }
-
 </script>
-  <script>
-
-const no = document.getElementById("no");
-const yes = document.getElementById("yes");
-
-const funnyTexts = [
-
-"Не 🙈",
-"Сигурна ли си? 🤔",
-"Помисли пак 😄",
-"Хмм... 😅",
-"Почти 😂",
-"Не става 🤭",
-"Хаха 😜",
-"Няма шанс 😎"
-
-];
-
-let tries = 0;
-
-function moveNo(){
-
-const area = document.getElementById("buttons");
-
-const maxX = area.clientWidth - no.offsetWidth;
-const maxY = area.clientHeight - no.offsetHeight;
-
-const x = Math.random() * maxX;
-const y = Math.random() * maxY;
-
-no.style.left = x + "px";
-no.style.top = y + "px";
-
-no.innerHTML = funnyTexts[tries % funnyTexts.length];
-
-tries++;
-
-yes.style.transform =
-`scale(${1 + tries*0.05})`;
-
-if(navigator.vibrate){
-navigator.vibrate(30);
-}
-
-}
-
-no.addEventListener("mouseenter",moveNo);
-no.addEventListener("touchstart",function(e){
-
-e.preventDefault();
-
-moveNo();
-
-},{passive:false});
-
-no.addEventListener("click",moveNo);
-
-function confetti(){
-
-for(let i=0;i<140;i++){
-
-const c=document.createElement("div");
-
-c.className="confetti";
-
-c.style.left=Math.random()*100+"vw";
-
-c.style.background=
-`hsl(${Math.random()*360},90%,60%)`;
-
-c.style.animationDuration=
-(Math.random()*2+2)+"s";
-
-c.style.transform=
-`rotate(${Math.random()*360}deg)`;
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-
-c.remove();
-
-},4500);
-
-}
-
-}
-
-yes.onclick=function(){
-
-confetti();
-
-if(navigator.vibrate){
-
-navigator.vibrate([100,60,100]);
-
-}
-
-document.querySelector(".card").innerHTML=`
-
-<div class="success">
-
-<div style="font-size:70px;margin-bottom:15px;">
-🥹❤️
-</div>
-
-<div style="font-size:34px;font-weight:700;">
-ЙЕЕЕЕ!
-</div>
-
-<br>
-
-Много се радвам. ❤️
-
-<br><br>
-
-Нямам търпение
-да те видя.
-
-<br><br>
-
-🥰
-
-</div>
-
-`;
-
-};
-
-</script>
-
 </body>
 </html>
-  
